@@ -9,21 +9,20 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 
 from src.core.settings import settings
+from src.apps.places.routers import router as places_router
+from src.apps.places.buttons import choose_pose_and_location_keyboard
 
 dp = Dispatcher()
+
+dp.include_router(places_router)
 
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-    await message.answer(f"Hello, {html.bold(message.from_user.full_name)}!")
-
-
-@dp.message()
-async def echo_handler(message: Message) -> None:
-    try:
-        await message.send_copy(chat_id=message.chat.id)
-    except TypeError:
-        await message.answer("Nice try!")
+    await message.answer(
+        f"Привет, {html.bold(message.from_user.full_name)}!\nНажми кнопку ниже 👇",
+        reply_markup=choose_pose_and_location_keyboard
+    )
 
 
 async def main() -> None:
