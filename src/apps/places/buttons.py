@@ -1,9 +1,4 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+# src/apps/places/buttons.py
+from aiogram.types import KeyboardButton
 
-
-choose_pose_and_location_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="🎲 Выбрать позу и место")]
-    ],
-    resize_keyboard=True
-)
+choose_pose_and_location_button = KeyboardButton(text="🎲 Выбрать позу и место")

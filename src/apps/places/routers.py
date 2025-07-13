@@ -19,4 +19,4 @@ async def handle_choose_pose_and_location(message: Message) -> None:
         f"{html.bold('🔥 Описание:')} {html.quote(description)}"
     )
     await asyncio.sleep(4)
-    await message.answer(text)
+    await message.reply(text)
