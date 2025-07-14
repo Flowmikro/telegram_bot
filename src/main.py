@@ -30,7 +30,8 @@ kb = ReplyKeyboardMarkup(
 @dp.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
     await message.answer(
-        f"Привет, {html.bold(message.from_user.full_name)}!\nНажми кнопку ниже 👇",
+        f"👋 Привет! Этот бот подскажет интересные позы и идеи для близости с партнёром.\n"
+        f"👇 Выбери, что попробовать первым",
         reply_markup=kb,
 
     )
